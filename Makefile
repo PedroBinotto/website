@@ -23,9 +23,14 @@ init:
 vet:
 	go vet $(PACKAGES)
 
+## generate: compile templ files
+.PHONY: generate
+generate:
+	templ generate 
+
 ## test: run unit tests
 .PHONY: test
-test:
+test: generate
 	go test -race -cover $(PACKAGES)
 
 ## build: build a binary

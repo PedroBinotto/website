@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"net/http"
 	"os"
 
 	"github.com/PedroBinotto/website/templates"
@@ -12,11 +11,14 @@ import (
 func main() {
 	e := echo.New()
 
-	component := templates.Hello("Pedro")
+	index := templates.Index()
+
+	component := templates.Layout(templates.Hello("Pedro"))
 	component.Render(context.Background(), os.Stdout)
 
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
+		return index.Render(context.Background(), c.Response().Writer)
+		// return c.String(http.StatusOK, "Hello, World!")
 	})
 	e.Static("/static", "static")
 	e.Logger.Fatal((e.Start(":3000")))

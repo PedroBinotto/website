@@ -1,0 +1,16 @@
+package templates
+
+templ Layout(content templ.Component) {
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Pedro Binotto</title>
+			<link href="/css/output.css" rel="stylesheet"/>
+			<script src="https://unpkg.com/htmx.org@1.9.8"></script>
+			<script src="https://unpkg.com/htmx.org/dist/ext/multi-swap.js"></script>
+		</head>
+		<body>
+			@content
+		</body>
+	</html>
+}

@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"os"
 
 	"github.com/PedroBinotto/website/templates"
 	"github.com/labstack/echo/v4"
@@ -11,15 +10,18 @@ import (
 func main() {
 	e := echo.New()
 
-	index := templates.Index()
-
-	component := templates.Layout(templates.Hello("Pedro"))
-	component.Render(context.Background(), os.Stdout)
-
 	e.GET("/", func(c echo.Context) error {
+		index := templates.Layout(templates.Index())
 		return index.Render(context.Background(), c.Response().Writer)
-		// return c.String(http.StatusOK, "Hello, World!")
 	})
+
+	e.GET("/hello", func(c echo.Context) error {
+		component := templates.Layout(templates.Hello("Pedro"))
+		return component.Render(context.Background(), c.Response().Writer)
+	})
+
 	e.Static("/static", "static")
+	e.Static("/css", "css")
+
 	e.Logger.Fatal((e.Start(":3000")))
 }

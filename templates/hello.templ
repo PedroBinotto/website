@@ -1,5 +1,14 @@
 package templates
 
 templ Hello(name string) {
-	<div class="text-3xl text-blue-500">Hello, { name }!</div>
+	<article class="prose">
+		<h1>Tailwind Typography Example</h1>
+		<div>Hello, { name }!</div>
+		<p>This is a paragraph with nicely spaced text.</p>
+		<blockquote>A beautifully styled blockquote.</blockquote>
+		<ul>
+			<li>Bullet point one</li>
+			<li>Bullet point two</li>
+		</ul>
+	</article>
 }

@@ -10,4 +10,12 @@
   .themed-view {
     @apply text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark transition-colors duration-200;
   }
+
+  .hoverable {
+    @apply dark:hover:bg-slate-600 hover:bg-slate-300 transition-colors duration-200;
+  }
+
+  .font-code {
+    @apply font-mono font-semibold;
+  }
 }

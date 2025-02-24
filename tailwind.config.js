@@ -9,9 +9,9 @@ module.exports = {
         mono: ['Inconsolata', 'mono'],
       },
       fontSize: {
-        'header-1': '8rem',
-        'header-2': '3.5rem',
-        'header-3': '1.5rem'
+        'h1': '8rem',
+        'h2': '3.5rem',
+        'h3': '1.5rem'
       },
       lineHeight: {
         'paragraph': '150%',
@@ -45,13 +45,13 @@ module.exports = {
               letterSpacing: theme('letterSpacing.heading'),
             },
             h1: {
-              fontSize: theme('fontSize.header-1'),
+              fontSize: theme('fontSize.h1'),
             },
             h2: {
-              fontSize: theme('fontSize.header-2'),
+              fontSize: theme('fontSize.h2'),
             },
             h3: {
-              fontSize: theme('fontSize.header-3'),
+              fontSize: theme('fontSize.h3'),
             },
             p: {
               fontFamily: theme('fontFamily.sans'),
@@ -62,7 +62,7 @@ module.exports = {
               lineHeight: theme('lineHeight.paragraph'),
               letterSpacing: theme('letterSpacing.paragraph'),
             },
-            maxWidth: '90ch',
+            maxWidth: 'none',
           },
         },
       }),

@@ -1,5 +1,31 @@
 package components
 
 templ SiteFooter() {
-	<footer class="themed-view p-4">Footer</footer>
+	<footer class="p-4 pt-16 w-full max-w-6xl mx-auto border-t border-t-text-light dark:border-t-text-dark">
+		<div class="flex justify-between items-center">
+			<div class="mx-auto flex gap-6">
+				<div class="grid grid-cols-2 gap-6 max-w-2xl opacity-70 text-sm font-light">
+					<div class="text-right">
+						<!-- right column -->
+						<p class="my-2">
+							Contact Information:
+						</p>
+						<p class="my-2">
+							e-mail @ <span class="font-code">pedrosantibinotto@gmail.com</span>
+						</p>
+						<p class="my-2">
+							BLa bla bla
+						</p>
+					</div>
+					<div class="text-left">
+						<!-- left column -->
+						<p class="my-2">
+							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+							Excepteur
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 }

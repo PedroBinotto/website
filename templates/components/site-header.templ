@@ -1,23 +1,25 @@
 package components
 
 templ SiteHeader() {
-	<header class="sticky top-0 shadow-md p-4 z-50 themed-view">
-		<div class="w-full max-w-6xl mx-auto flex justify-between items-center">
-			<div class="flex items-center gap-12">
-				<div class="font-mono text-lg">
-					<a href="/">
-						pedro binotto <span class="font-bold">$</span> <span class="animate-ping">█</span>
-					</a>
+	<header class="sticky top-0 z-50 themed-view">
+		<div class="p-4 w-full max-w-6xl mx-auto border-b border-b-text-light dark:border-b-text-dark">
+			<div class="flex justify-between items-center">
+				<div class="flex items-center gap-12">
+					<div class="font-mono text-lg">
+						<a href="/">
+							pedro binotto <span class="font-bold">$</span> <span class="animate-ping">❚</span>
+						</a>
+					</div>
+					<div class="h-10 w-px bg-gray-300 dark:bg-gray-600"></div>
+					<nav class="flex gap-6">
+						<a href="/">Home</a>
+						<a href="/resume">Resume</a>
+						<a href="/hello">hello</a>
+						<a href="/blogs">Blogs</a>
+					</nav>
 				</div>
-				<div class="h-10 w-px bg-gray-300 dark:bg-gray-600"></div>
-				<nav class="flex gap-6">
-					<a href="/">Home</a>
-					<a href="/resume">Resume</a>
-					<a href="/hello">hello</a>
-					<a href="/blogs">Blogs</a>
-				</nav>
+				@DarkModeBtn()
 			</div>
-			@DarkModeBtn()
 		</div>
 	</header>
 }

@@ -3,7 +3,7 @@ package templates
 templ Hello(name string) {
 	<article class="prose dark:prose-invert mb-10">
 		<h1>pedro's <br/>really cool online presence</h1>
-		<div class="grid grid-cols-2 gap-4">
+		<div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
 			<div>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -38,6 +38,9 @@ templ Hello(name string) {
 				<div>Hello, { name }!</div>
 				<p>This is a paragraph with nicely spaced text.</p>
 				<blockquote>A beautifully styled blockquote.</blockquote>
+				<p>
+					How I achieved this with the <span class="font-code">def printl(*args) -> None:</span> package;
+				</p>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
 					magna

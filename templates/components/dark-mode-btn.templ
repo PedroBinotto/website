@@ -1,0 +1,9 @@
+package components
+
+templ DarkModeBtn() {
+	<button onclick="toggleDarkMode()" class="px-4 py-2 rounded-lg">
+		<!-- TODO: (maybe) componentizar "Icons": -->
+		<img src="/static/assets/sun-svgrepo-com.svg" class="dark:hidden dark:invert size-6" alt="theme: light"/>
+		<img src="/static/assets/moon-svgrepo-com.svg" class="hidden dark:inline dark:invert size-6" alt="theme: dark"/>
+	</button>
+}

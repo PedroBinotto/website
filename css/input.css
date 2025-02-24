@@ -5,3 +5,9 @@
 @tailwind utilities;
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  .themed-view {
+    @apply text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark transition-colors duration-200;
+  }
+}

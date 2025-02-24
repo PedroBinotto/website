@@ -2,7 +2,7 @@ muh website
 
 ### requirements
 
-- Tailwind CSS v4+;
+- Tailwind CSS v3;
 
 ### TODO:
 

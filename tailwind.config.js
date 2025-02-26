@@ -9,9 +9,14 @@ module.exports = {
         mono: ['Inconsolata', 'mono'],
       },
       fontSize: {
-        'h1': '8rem',
-        'h2': '3.5rem',
-        'h3': '1.5rem'
+        'xs': '0.5rem',
+        'sm': '0.7rem',
+        'lg': '1.4rem',
+        'xl': '2rem',
+        '2xl': '2.8rem',
+        '3xl': '4rem',
+        '4xl': '5.6rem',
+        '5xl': '8rem',
       },
       lineHeight: {
         'paragraph': '150%',
@@ -38,20 +43,29 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            'h1, h2, h3, h4': {
+            'h1, h2, h3, h4, h5, h6': {
               fontFamily: theme('fontFamily.serif'),
-              fontWeight: theme('fontWeight.bold'),
+              // fontWeight: theme('fontWeight.bold'),
               lineHeight: theme('lineHeight.heading'),
               letterSpacing: theme('letterSpacing.heading'),
             },
             h1: {
-              fontSize: theme('fontSize.h1'),
+              fontSize: theme('fontSize.5xl'),
             },
             h2: {
-              fontSize: theme('fontSize.h2'),
+              fontSize: theme('fontSize.4xl'),
             },
             h3: {
-              fontSize: theme('fontSize.h3'),
+              fontSize: theme('fontSize.3xl'),
+            },
+            h4: {
+              fontSize: theme('fontSize.2xl'),
+            },
+            h5: {
+              fontSize: theme('fontSize.xl'),
+            },
+            h6: {
+              fontSize: theme('fontSize.lg'),
             },
             p: {
               fontFamily: theme('fontFamily.sans'),
@@ -71,3 +85,5 @@ module.exports = {
   plugins: [require('@tailwindcss/typography')],
   darkMode: 'class',
 }
+
+

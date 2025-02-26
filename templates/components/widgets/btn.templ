@@ -41,6 +41,7 @@ type BtnProps struct {
 
 templ Btn(props BtnProps) {
 	<button
+    id={ props.Id }
 		if props.PreStyled {
 			class={ props.Class + " hoverable overflow-clip h-10 disabled:animate-pulse flex flex-row disabled:cursor-not-allowed disabled:opacity-60 disabled:bg-slate-600 disabled:hover:bg-slate-700 inline-flex items-center justify-between px-4 py-2 lg:text-sm font-medium tracking-wide text-white transition-colors duration-200 rounded-md bg-neutral-950 dark:bg-[#d3d3d3] dark:hover:bg-[#f4f4f4] dark:text-black focus:ring-0 focus:ring-offset-0 focus:ring-neutral-900 focus:shadow-outline focus:outline-none"}
 		} else {

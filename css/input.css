@@ -6,6 +6,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+  a {
+    @apply underline decoration-1;
+  }
+}
+
 @layer utilities {
   .themed-view {
     @apply text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark transition-colors duration-200;

@@ -10,6 +10,24 @@
   a {
     @apply underline decoration-1;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply uppercase;
+  }
+
+  ul,
+  ol {
+    @apply list-none;
+  }
+
+  li {
+    @apply before:content-['-'] before:mr-2 before:font-black;
+  }
 }
 
 @layer utilities {

@@ -2,12 +2,12 @@
 module.exports = {
   content: ['./templates/**/*.{html,templ}'],
   theme: {
+    fontFamily: {
+      sans: ['Inter', 'system-ui', 'sans-serif'],
+      serif: ['DM Serif Text', 'serif'],
+      mono: ['Inconsolata', 'mono'],
+    },
     extend: {
-      fontFamily: {
-        sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
-        serif: ['DM Serif Text', 'serif'],
-        mono: ['Inconsolata', 'mono'],
-      },
       fontSize: {
         'xs': '0.5rem',
         'sm': '0.7rem',
@@ -44,8 +44,7 @@ module.exports = {
         DEFAULT: {
           css: {
             'h1, h2, h3, h4, h5, h6': {
-              fontFamily: theme('fontFamily.serif'),
-              // fontWeight: theme('fontWeight.bold'),
+              fontWeight: theme('fontWeight.semibold'),
               lineHeight: theme('lineHeight.heading'),
               letterSpacing: theme('letterSpacing.heading'),
             },
@@ -67,8 +66,18 @@ module.exports = {
             h6: {
               fontSize: theme('fontSize.lg'),
             },
-            p: {
-              fontFamily: theme('fontFamily.sans'),
+            hr: {
+              marginTop: '1rem',
+              marginBottom: '1rem',
+            },
+            li: {
+              marginTop: '0',
+              marginBottom: '0'
+            },
+            'ul, ol': {
+              listStyleType: "none",
+            },
+            'p, div, li': {
               fontSize: theme('fontSize.base'),
               fontWeight: theme('fontWeight.light'),
             },

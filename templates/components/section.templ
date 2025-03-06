@@ -1,0 +1,21 @@
+package components
+
+type SectionProps struct {
+	TitleRowLeft     string
+	TitleRowRight    string
+	SubTitleRowLeft  string
+	SubTitleRowRight string
+}
+
+templ Section(props SectionProps) {
+	<hr/>
+	<div class="flex justify-between items-center">
+		<h6>{ props.TitleRowLeft }</h6>
+		<h6>{ props.TitleRowRight }</h6>
+	</div>
+	<div class="flex justify-between items-center">
+		<p class="italic my-0">{ props.SubTitleRowLeft }</p>
+		<p class="italic my-0">{ props.SubTitleRowRight }</p>
+	</div>
+	{ children... }
+}

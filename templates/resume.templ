@@ -1,4 +1,69 @@
 package templates
 
+import "github.com/PedroBinotto/website/templates/components/widgets"
+import "github.com/PedroBinotto/website/templates/components"
+
 templ Resume() {
+	<!-- TODO: figure out vertical spacing -->
+	<article class="prose dark:prose-invert">
+		<h2 class="mb-4">RESUME / CURRICULUM </h2>
+		<hr/>
+		<h4 class="mb-0">PEDRO SANTI BINOTTO </h4>
+		<div class="flex items-center gap-2">
+			<div>+55 (49) 9 99942-7588</div>
+			@widgets.Divider(widgets.DividerProps{
+				Height: widgets.H_5,
+			})
+			<div>
+				@components.MailLink()
+			</div>
+			@widgets.Divider(widgets.DividerProps{
+				Height: widgets.H_5,
+			})
+			<div>
+				<a href="https://www.github.com/PedroBinotto/">
+					<p>github.com/PedroBinotto</p>
+				</a>
+			</div>
+		</div>
+		<h5>EDUCATION</h5>
+		@components.Section(components.SectionProps{
+			TitleRowLeft:     "UNIVERSIDADE FEREDAL DE SANTA CATARINA",
+			TitleRowRight:    "AUG. 2020 — CURRENT DAY",
+			SubTitleRowLeft:  "BACHELOR IN INFORMATION SYSTEMS",
+			SubTitleRowRight: "Florianópolis, SC",
+		}) {
+			<ul>
+				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
+				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
+				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
+				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
+				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
+			</ul>
+		}
+		<h5>EXPERIENCE</h5>
+		@components.Section(components.SectionProps{
+			TitleRowLeft:     "FULL STACK DEVELOPER",
+			TitleRowRight:    "MAR. 2023 — CURRENT DAY",
+			SubTitleRowLeft:  "Laboratório Bridge",
+			SubTitleRowRight: "Florianópolis, SC",
+		}) {
+			<ul>
+				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
+				<li>Full stack experience working with both REST and GraphQL-based products;</li>
+				<li>Experience with distributed systems;</li>
+				<li>
+					Planning, development, deployment, and maintenance of large-scale software applications, both monolith and
+					microservice architectures;
+				</li>
+				<li>
+					Development of internal tooling that keeps track of tickets and calculates metrics to enable data-driven
+					planning of sprints;
+				</li>
+				<li>Technical mentoring to undergraduate interns working on the project;</li>
+			</ul>
+		}
+		<h5>TECHNICAL SKILLS</h5>
+		<h5>PROJECTS</h5>
+	</article>
 }

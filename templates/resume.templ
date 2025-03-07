@@ -9,7 +9,7 @@ templ Resume() {
 		<h2 class="mb-4">RESUME / CURRICULUM </h2>
 		<hr/>
 		<h4 class="mb-0">PEDRO SANTI BINOTTO </h4>
-		<div class="flex flex-col md:flex-row gap-2 items-end md:items-center my-4">
+		<div class="flex flex-col md:flex-row gap-2 items-start md:items-center my-4">
 			<div>
 				@components.MailLink()
 			</div>
@@ -38,15 +38,7 @@ templ Resume() {
 			TitleRowRight:    "AUG. 2020 — CURRENT DAY",
 			SubTitleRowLeft:  "BACHELOR IN INFORMATION SYSTEMS",
 			SubTitleRowRight: "Florianópolis, SC",
-		}) {
-			<ul>
-				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
-				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
-				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
-				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
-				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
-			</ul>
-		}
+		})
 		<h5>EXPERIENCE</h5>
 		@components.Section(components.SectionProps{
 			TitleRowLeft:     "FULL STACK DEVELOPER",
@@ -67,6 +59,20 @@ templ Resume() {
 					planning of sprints;
 				</li>
 				<li>Technical mentoring to undergraduate interns working on the project;</li>
+			</ul>
+		}
+		@components.Section(components.SectionProps{
+			TitleRowLeft:     "BACK END DEVELOPER",
+			TitleRowRight:    "APR. 2021 — MAR. 2023",
+			SubTitleRowLeft:  "Laboratório Bridge",
+			SubTitleRowRight: "Florianópolis, SC",
+		}) {
+			<ul>
+				<li>Full stack development work in large-scale web projects;</li>
+				<li>Development work in Java-Spring REST backends and React/Angular based frontends;</li>
+				<li>
+					Experience with Oracle and Postgres databases coupled with change management pipeline tools such as Liquibase;
+				</li>
 			</ul>
 		}
 		<h5>TECHNICAL SKILLS</h5>

@@ -27,7 +27,7 @@
   }
 
   li {
-    @apply before:content-['-'] before:mr-2;
+    @apply before:content-['-'] before:mr-2 pb-2;
   }
 }
 

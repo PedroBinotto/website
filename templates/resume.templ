@@ -5,24 +5,30 @@ import "github.com/PedroBinotto/website/templates/components"
 
 templ Resume() {
 	<!-- TODO: figure out vertical spacing -->
-	<article class="prose dark:prose-invert">
+	<article class="prose md:prose-md dark:prose-invert">
 		<h2 class="mb-4">RESUME / CURRICULUM </h2>
 		<hr/>
 		<h4 class="mb-0">PEDRO SANTI BINOTTO </h4>
-		<div class="flex items-center gap-2">
-			<div>+55 (49) 9 99942-7588</div>
-			@widgets.Divider(widgets.DividerProps{
-				Height: widgets.H_5,
-			})
+		<div class="flex flex-col md:flex-row gap-2 items-end md:items-center my-4">
 			<div>
 				@components.MailLink()
 			</div>
 			@widgets.Divider(widgets.DividerProps{
 				Height: widgets.H_5,
+				Class:  "hidden md:block",
 			})
 			<div>
 				<a href="https://www.github.com/PedroBinotto/">
-					<p>github.com/PedroBinotto</p>
+					<p class="my-0">github.com/PedroBinotto</p>
+				</a>
+			</div>
+			@widgets.Divider(widgets.DividerProps{
+				Height: widgets.H_5,
+				Class:  "hidden md:block",
+			})
+			<div>
+				<a href="tel:+55499999427588">
+					+55 (49) 9 99942-7588
 				</a>
 			</div>
 		</div>

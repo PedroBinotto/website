@@ -49,6 +49,47 @@ module.exports = {
               letterSpacing: theme('letterSpacing.heading'),
             },
             h1: {
+              fontSize: theme('fontSize.3xl'),
+            },
+            h2: {
+              fontSize: theme('fontSize.2xl'),
+            },
+            h3: {
+              fontSize: theme('fontSize.1xl'),
+            },
+            h4: {
+              fontSize: theme('fontSize.xl'),
+            },
+            h5: {
+              fontSize: theme('fontSize.lg'),
+            },
+            h6: {
+              fontSize: theme('fontSize.base'),
+            },
+            hr: {
+              marginTop: '1rem',
+              marginBottom: '1rem',
+            },
+            li: {
+              marginTop: '0',
+              marginBottom: '0'
+            },
+            'ul, ol': {
+              paddingLeft: "0",
+              listStyleType: "none",
+            },
+            ':not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)': {
+              fontSize: theme('fontSize.base'),
+              fontWeight: theme('fontWeight.light'),
+              lineHeight: theme('lineHeight.paragraph'),
+              letterSpacing: theme('letterSpacing.paragraph'),
+            },
+            maxWidth: 'none',
+          },
+        },
+        md: {
+          css: {
+            h1: {
               fontSize: theme('fontSize.5xl'),
             },
             h2: {
@@ -66,28 +107,8 @@ module.exports = {
             h6: {
               fontSize: theme('fontSize.lg'),
             },
-            hr: {
-              marginTop: '1rem',
-              marginBottom: '1rem',
-            },
-            li: {
-              marginTop: '0',
-              marginBottom: '0'
-            },
-            'ul, ol': {
-              listStyleType: "none",
-            },
-            'p, div, li': {
-              fontSize: theme('fontSize.base'),
-              fontWeight: theme('fontWeight.light'),
-            },
-            'p, blockquote': {
-              lineHeight: theme('lineHeight.paragraph'),
-              letterSpacing: theme('letterSpacing.paragraph'),
-            },
-            maxWidth: 'none',
-          },
-        },
+          }
+        }
       }),
     },
   },

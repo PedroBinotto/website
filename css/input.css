@@ -7,9 +7,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
-  a {
-    @apply underline decoration-1;
-  }
 
   h1,
   h2,
@@ -25,8 +22,12 @@
     @apply list-none;
   }
 
+  a {
+    @apply underline decoration-1;
+  }
+
   li {
-    @apply before:content-['-'] before:mr-2 before:font-black;
+    @apply before:content-['-'] before:mr-2;
   }
 }
 

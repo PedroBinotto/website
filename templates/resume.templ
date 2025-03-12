@@ -5,7 +5,7 @@ import "github.com/PedroBinotto/website/templates/components"
 
 templ Resume() {
 	<!-- TODO: figure out vertical spacing -->
-	<article class="prose md:prose-md dark:prose-invert">
+	@components.Article() {
 		<h2 class="mb-4">RESUME / CURRICULUM </h2>
 		<hr/>
 		<h4 class="mb-0">PEDRO SANTI BINOTTO </h4>
@@ -48,17 +48,9 @@ templ Resume() {
 		}) {
 			<ul>
 				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
-				<li>Full stack experience working with both REST and GraphQL-based products;</li>
-				<li>Experience with distributed systems;</li>
-				<li>
-					Planning, development, deployment, and maintenance of large-scale software applications, both monolith and
-					microservice architectures;
-				</li>
-				<li>
-					Development of internal tooling that keeps track of tickets and calculates metrics to enable data-driven
-					planning of sprints;
-				</li>
+				<li>Full stack experience working with REST and GraphQL-based products;</li>
 				<li>Technical mentoring to undergraduate interns working on the project;</li>
+				<li>React and Angular based frontends;</li>
 			</ul>
 		}
 		@components.Section(components.SectionProps{
@@ -69,13 +61,26 @@ templ Resume() {
 		}) {
 			<ul>
 				<li>Full stack development work in large-scale web projects;</li>
-				<li>Development work in Java-Spring REST backends and React/Angular based frontends;</li>
 				<li>
 					Experience with Oracle and Postgres databases coupled with change management pipeline tools such as Liquibase;
+				</li>
+				<li>Experience with distributed systems;</li>
+				<li>
+					Planning, development, deployment, and maintenance of large-scale software applications, both monolith and
+					microservice architectures;
 				</li>
 			</ul>
 		}
 		<h5>TECHNICAL SKILLS</h5>
-		<h5>PROJECTS</h5>
-	</article>
+		<ul>
+			<li>Backend development (Java, JS, Python, Go, etc...);</li>
+			<li>Standard fronted frameworks (React, Angular, Vue, Svelte);</li>
+		</ul>
+		<h5>PERSONAL PROJECTS</h5>
+		<ul>
+			<li>Currently experimenting with unorthodox/alternative web stacks (HTMX, GOTTH, etc...);</li>
+			<li>Neovim customization and plugin development;</li>
+			<li>Open source work;</li>
+		</ul>
+	}
 }

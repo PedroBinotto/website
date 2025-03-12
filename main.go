@@ -25,6 +25,11 @@ func main() {
 		return component.Render(context.Background(), c.Response().Writer)
 	})
 
+	e.GET("/blogs", func(c echo.Context) error {
+		component := templates.Layout(templates.Blogs())
+		return component.Render(context.Background(), c.Response().Writer)
+	})
+
 	e.Static("/static", "static")
 	e.Static("/css", "css")
 

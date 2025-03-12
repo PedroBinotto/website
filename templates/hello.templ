@@ -1,7 +1,9 @@
 package templates
 
+import "github.com/PedroBinotto/website/templates/components"
+
 templ Hello(name string) {
-	<article class="prose md:prose-md dark:prose-invert mb-10">
+	@components.Article() {
 		<h1 class="normal-case">pedro's <br/>really cool online presence</h1>
 		<div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
 			<div>
@@ -62,5 +64,5 @@ templ Hello(name string) {
 				</ul>
 			</div>
 		</div>
-	</article>
+	}
 }

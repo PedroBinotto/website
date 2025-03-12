@@ -32,6 +32,12 @@
 }
 
 @layer utilities {
+  @keyframes appear {
+    to {
+      visibility: visible;
+    }
+  }
+
   .themed-view {
     @apply text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark transition-colors duration-200;
   }
@@ -42,5 +48,26 @@
 
   .font-code {
     @apply font-mono font-semibold;
+  }
+
+  .animate-appear {
+    visibility: hidden;
+    animation: appear 0s forwards;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  .animate-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .animate-delay-1500 {
+    animation-delay: 1.5s;
+  }
+
+  .animate-delay-2000 {
+    animation-delay: 2s;
   }
 }

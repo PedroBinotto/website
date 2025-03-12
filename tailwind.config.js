@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./templates/**/*.{html,templ}'],
@@ -44,9 +46,14 @@ module.exports = {
         DEFAULT: {
           css: {
             'h1, h2, h3, h4, h5, h6': {
+              marginTop: "1rem",
+              marginBottom: "1rem",
               fontWeight: theme('fontWeight.semibold'),
               lineHeight: theme('lineHeight.heading'),
               letterSpacing: theme('letterSpacing.heading'),
+            },
+            pre: {
+              borderRadius: '0',
             },
             h1: {
               fontSize: theme('fontSize.3xl'),
@@ -108,7 +115,7 @@ module.exports = {
               fontSize: theme('fontSize.lg'),
             },
           }
-        }
+        },
       }),
     },
   },

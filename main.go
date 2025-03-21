@@ -33,5 +33,5 @@ func main() {
 	e.Static("/static", "static")
 	e.Static("/css", "css")
 
-	e.Logger.Fatal((e.Start(":3000")))
+	e.Logger.Fatal((e.Start(":8080")))
 }

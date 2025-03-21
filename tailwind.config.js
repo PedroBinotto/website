@@ -41,6 +41,12 @@ module.exports = {
           light: '#111827',
           dark: '#e5e7eb',
         },
+        code: {
+          background: {
+            light: '#e5e7eb',
+            dark: '#161616',
+          },
+        }
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -54,6 +60,8 @@ module.exports = {
             },
             pre: {
               borderRadius: '0',
+              backgroundColor: theme('colors.code.background.light'),
+              color: theme('colors.text.light'),
             },
             h1: {
               fontSize: theme('fontSize.3xl'),
@@ -116,11 +124,17 @@ module.exports = {
             },
           }
         },
+        dark: {
+          css: {
+            pre: {
+              backgroundColor: theme('colors.code.background.dark'),
+              color: theme('colors.text.dark'),
+            },
+          },
+        }
       }),
     },
   },
   plugins: [require('@tailwindcss/typography')],
   darkMode: 'class',
 }
-
-

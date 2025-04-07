@@ -1,0 +1,68 @@
+package templates
+
+import "github.com/PedroBinotto/website/templates/components"
+
+templ Hello(name string) {
+	@components.Article() {
+		<h1 class="normal-case">pedro's <br/>really cool online presence</h1>
+		<div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
+			<div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					magna
+					aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.
+					Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+					sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					magna
+					aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.
+					Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+					sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</div>
+			<div>
+				<h2 class="mt-0">Blogs</h2>
+				<hr class="mb-10"/>
+				<h4>Tailwind Typography Example</h4>
+				<p>Hello, { name }!</p>
+				<p>This is a paragraph with nicely spaced text.</p>
+				<blockquote>A beautifully styled blockquote.</blockquote>
+				<ul>
+					<li>Bullet point one</li>
+					<li>Bullet point two</li>
+				</ul>
+				<hr class="mb-10"/>
+				<h4>Tailwind Typography Example</h4>
+				<div>Hello, { name }!</div>
+				<p>This is a paragraph with nicely spaced text.</p>
+				<blockquote>A beautifully styled blockquote.</blockquote>
+				<p>
+					How I achieved this with the <span class="font-code">def printl(*args) -> None:</span> package;
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					magna
+					aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.
+					Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+					sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<blockquote>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+					dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+					commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+					laborum.
+				</blockquote>
+				<ul>
+					<li>Bullet point one</li>
+					<li>Bullet point two</li>
+				</ul>
+			</div>
+		</div>
+	}
+}

@@ -1,0 +1,35 @@
+package components
+
+templ SiteFooter() {
+	<footer class="p-4 pt-16 w-full max-w-6xl mx-auto border-t border-t-text-light dark:border-t-text-dark">
+		<div class="flex justify-between items-center">
+			<div class="mx-auto flex gap-6">
+				<div class="grid grid-cols-2 gap-6 max-w-2xl opacity-70 text-sm font-light">
+					<div class="text-right">
+						<!-- right column -->
+						<p class="my-2">
+							Pedro Santi Binotto
+						</p>
+						<p class="my-2">
+							Florianópolis, SC, Brasil
+						</p>
+						<p class="my-2">
+							@MailLink()
+						</p>
+					</div>
+					<div class="text-left">
+						<!-- left column -->
+						<p class="my-2">
+							Website built with <a href="https://go.dev/">Go</a>, <a href="https://templ.guide/">Templ</a>, <a
+	href="https://htmx.org/"
+>HTMX</a>, and <a href="https://tailwindcss.com/">TailwindCSS</a>
+						</p>
+						<p class="my-2">
+							<a href="https://www.github.com/PedroBinotto/website">Source code on Github</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+}

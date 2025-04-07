@@ -1,0 +1,73 @@
+/* tailwindcss v3.4.17 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply uppercase;
+  }
+
+  ul,
+  ol {
+    @apply list-none;
+  }
+
+  a {
+    @apply underline decoration-1;
+  }
+
+  li {
+    @apply before:content-['-'] before:mr-2 pb-2;
+  }
+}
+
+@layer utilities {
+  @keyframes appear {
+    to {
+      visibility: visible;
+    }
+  }
+
+  .themed-view {
+    @apply text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark transition-colors duration-200;
+  }
+
+  .hoverable {
+    @apply dark:hover:bg-slate-600 hover:bg-slate-300 transition-colors duration-200;
+  }
+
+  .font-code {
+    @apply font-mono font-semibold;
+  }
+
+  .animate-appear {
+    visibility: hidden;
+    animation: appear 0s forwards;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  .animate-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .animate-delay-1500 {
+    animation-delay: 1.5s;
+  }
+
+  .animate-delay-2000 {
+    animation-delay: 2s;
+  }
+}

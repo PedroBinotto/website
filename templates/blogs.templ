@@ -1,0 +1,162 @@
+package templates
+
+import "github.com/PedroBinotto/website/templates/components"
+
+templ Blogs() {
+	@components.Article() {
+		<header>
+			<h1>Welcome to My Sample Page</h1>
+			<p>This is a basic HTML page showcasing different elements.</p>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#section1">Section 1</a></li>
+				<li><a href="#section2">Section 2</a></li>
+				<li><a href="#form">Form</a></li>
+			</ul>
+		</nav>
+		<section id="section1">
+			<h2>Section 1: Text Elements</h2>
+			<p>This is a paragraph.</p>
+			<blockquote>This is a blockquote.</blockquote>
+			<pre>Preformatted text example.</pre>
+			<code>{ `<h1> Hello, World! </h1>` }</code>
+			<pre>
+				{ `
+#include <deque>
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+void print_vector(vector<int> vec) {
+  int size = vec.size();
+  for (int i = 0; i < size; i++) {
+    string tail = i == size - 1 ? "" : ", ";
+    cout << vec[i] << tail;
+  }
+  cout << "\n";
+}
+
+int main() {
+  vector<int> ins;
+
+  while (true) {
+    int i;
+    cin >> i;
+    if (i == 0)
+      break;
+    ins.push_back(i);
+  }
+
+  int N = ins.size();
+
+  vector<deque<int>> decks(N);
+  vector<pair<vector<int>, int>> results;
+
+  for (int i = 0; i < N; i++) {
+    for (int j = 1; j <= ins[i]; j++) {
+      decks[i].push_front(j);
+    }
+  }
+
+  for (int i = 0; i < N; i++) {
+    auto deck = decks[i];
+    pair<vector<int>, int> result;
+
+    while (true) {
+      if (deck.size() == 1) {
+        result.second = deck.back();
+        results.push_back(result);
+        break;
+      }
+
+      int top = deck.back();
+      result.first.push_back(top);
+      deck.pop_back();
+
+      int new_top = deck.back();
+      deck.push_front(new_top);
+      deck.pop_back();
+    }
+  }
+
+  for (auto result : results) {
+    string discarded_tail = result.first.size() == 0 ? "" : " ";
+    const string discarded = "Discarded cards:" + discarded_tail;
+    string remaining_tail = result.second == 0 ? "" : " " + to_string(result.second);
+    string remaining = "Remaining card:" + remaining_tail;
+
+    cout << discarded;
+    print_vector(result.first);
+    cout << remaining << endl;
+  }
+
+  return 0;
+}
+      ` }
+			</pre>
+		</section>
+		<section id="section2">
+			<h2>Section 2: Lists and Tables</h2>
+			<h3>Unordered List</h3>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+			</ul>
+			<h3>Ordered List</h3>
+			<ol>
+				<li>First</li>
+				<li>Second</li>
+				<li>Third</li>
+			</ol>
+			<h3>Table</h3>
+			<table border="1">
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+				</tr>
+				<tr>
+					<td>Alice</td>
+					<td>25</td>
+				</tr>
+				<tr>
+					<td>Bob</td>
+					<td>30</td>
+				</tr>
+			</table>
+		</section>
+		<section id="form">
+			<h2>Form Elements</h2>
+			<form>
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name"/>
+				<br/>
+				<br/>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email"/>
+				<br/>
+				<br/>
+				<label for="message">Message:</label>
+				<textarea id="message" name="message"></textarea>
+				<br/>
+				<br/>
+				<button type="submit">Submit</button>
+			</form>
+		</section>
+		<section id="media">
+			<h2>Multimedia Elements</h2>
+			<img src="https://via.placeholder.com/150" alt="Placeholder Image"/>
+			<audio controls>
+				<source src="sample.mp3" type="audio/mpeg"/>
+				Your browser does not support the audio element.
+			</audio>
+			<video controls width="320">
+				<source src="sample.mp4" type="video/mp4"/>
+				Your browser does not support the video tag.
+			</video>
+		</section>
+	}
+}

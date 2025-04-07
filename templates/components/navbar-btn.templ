@@ -1,0 +1,16 @@
+package components
+
+import "github.com/PedroBinotto/website/templates/components/widgets"
+
+templ NavbarBtn() {
+	@widgets.Btn(widgets.BtnProps{
+		OnClick: "toggleNavbar()",
+		Class:   "rounded-3xl p-2 md:hidden",
+	}) {
+		<img
+			id="menu-icon"
+			src="/static/assets/hamburger.svg"
+			class="dark:invert size-6 w-6 h-6 transition-transform duration-300 rotate-90"
+		/>
+	}
+}

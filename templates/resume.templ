@@ -1,0 +1,86 @@
+package templates
+
+import "github.com/PedroBinotto/website/templates/components/widgets"
+import "github.com/PedroBinotto/website/templates/components"
+
+templ Resume() {
+	<!-- TODO: figure out vertical spacing -->
+	@components.Article() {
+		<h2 class="mb-4">RESUME / CURRICULUM </h2>
+		<hr/>
+		<h4 class="mb-0">PEDRO SANTI BINOTTO </h4>
+		<div class="flex flex-col md:flex-row gap-2 items-start md:items-center my-4">
+			<div>
+				@components.MailLink()
+			</div>
+			@widgets.Divider(widgets.DividerProps{
+				Height: widgets.H_5,
+				Class:  "hidden md:block",
+			})
+			<div>
+				<a href="https://www.github.com/PedroBinotto/">
+					<p class="my-0">github.com/PedroBinotto</p>
+				</a>
+			</div>
+			@widgets.Divider(widgets.DividerProps{
+				Height: widgets.H_5,
+				Class:  "hidden md:block",
+			})
+			<div>
+				<a href="tel:+55499999427588">
+					+55 (49) 9 99942-7588
+				</a>
+			</div>
+		</div>
+		<h5>EDUCATION</h5>
+		@components.Section(components.SectionProps{
+			TitleRowLeft:     "UNIVERSIDADE FEREDAL DE SANTA CATARINA",
+			TitleRowRight:    "AUG. 2020 — CURRENT DAY",
+			SubTitleRowLeft:  "BACHELOR IN INFORMATION SYSTEMS",
+			SubTitleRowRight: "Florianópolis, SC",
+		})
+		<h5>EXPERIENCE</h5>
+		@components.Section(components.SectionProps{
+			TitleRowLeft:     "FULL STACK DEVELOPER",
+			TitleRowRight:    "MAR. 2023 — CURRENT DAY",
+			SubTitleRowLeft:  "Laboratório Bridge",
+			SubTitleRowRight: "Florianópolis, SC",
+		}) {
+			<ul>
+				<li>Work in multiple projects for the Brazil Government Ministry of Health;</li>
+				<li>Full stack experience working with REST and GraphQL-based products;</li>
+				<li>Technical mentoring to undergraduate interns working on the project;</li>
+				<li>React and Angular based frontends;</li>
+			</ul>
+		}
+		@components.Section(components.SectionProps{
+			TitleRowLeft:     "BACK END DEVELOPER",
+			TitleRowRight:    "APR. 2021 — MAR. 2023",
+			SubTitleRowLeft:  "Laboratório Bridge",
+			SubTitleRowRight: "Florianópolis, SC",
+		}) {
+			<ul>
+				<li>Full stack development work in large-scale web projects;</li>
+				<li>
+					Experience with Oracle and Postgres databases coupled with change management pipeline tools such as Liquibase;
+				</li>
+				<li>Experience with distributed systems;</li>
+				<li>
+					Planning, development, deployment, and maintenance of large-scale software applications, both monolith and
+					microservice architectures;
+				</li>
+			</ul>
+		}
+		<h5>TECHNICAL SKILLS</h5>
+		<ul>
+			<li>Backend development (Java, JS, Python, Go, etc...);</li>
+			<li>Standard fronted frameworks (React, Angular, Vue, Svelte);</li>
+		</ul>
+		<h5>PERSONAL PROJECTS</h5>
+		<ul>
+			<li>Currently experimenting with unorthodox/alternative web stacks (HTMX, GOTTH, etc...);</li>
+			<li>Neovim customization and plugin development;</li>
+			<li>Open source work;</li>
+		</ul>
+	}
+}

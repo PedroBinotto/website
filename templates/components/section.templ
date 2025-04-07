@@ -1,0 +1,33 @@
+package components
+
+type SectionProps struct {
+	TitleRowLeft     string
+	TitleRowRight    string
+	SubTitleRowLeft  string
+	SubTitleRowRight string
+}
+
+templ Section(props SectionProps) {
+	<div class="mb-8">
+		<hr/>
+		<div class="flex justify-between flex-col gap-2 md:flex-row">
+			<div class="flex flex-col items-start">
+				<h6>{ props.TitleRowLeft }</h6>
+				<p class="italic my-0">{ props.SubTitleRowLeft }</p>
+			</div>
+			<div class="hidden md:flex flex-col items-start md:items-end">
+				<h6>{ props.TitleRowRight }</h6>
+				<p class="italic my-0">{ props.SubTitleRowRight }</p>
+			</div>
+			<div class="flex md:hidden flex-col items-start md:items-end">
+				<h6 class="font-light">
+					{ props.TitleRowRight } |
+					<span class="italic my-0">
+						{ props.SubTitleRowRight }
+					</span>
+				</h6>
+			</div>
+		</div>
+		{ children... }
+	</div>
+}

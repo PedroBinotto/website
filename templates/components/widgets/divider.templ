@@ -1,0 +1,34 @@
+package widgets
+
+type HeightVariant string
+
+const BASE_CLASS = " w-px bg-gray-300 dark:bg-gray-600 "
+const (
+	H_1  HeightVariant = "h-1"
+	H_2  HeightVariant = "h-2"
+	H_3  HeightVariant = "h-3"
+	H_4  HeightVariant = "h-4"
+	H_5  HeightVariant = "h-5"
+	H_6  HeightVariant = "h-6"
+	H_7  HeightVariant = "h-7"
+	H_8  HeightVariant = "h-8"
+	H_9  HeightVariant = "h-9"
+	H_10 HeightVariant = "h-10"
+)
+
+type DividerProps struct {
+	Class  string
+	Height HeightVariant
+}
+
+templ Divider(props DividerProps) {
+	if props.Height == "" {
+		<div class={ props.Class + BASE_CLASS + string(H_10) }></div>
+	} else {
+		<div class={ props.Class + BASE_CLASS + string(props.Height) }></div>
+	}
+}
+
+templ DefaultDivider() {
+	<div class={ "h-10 w-px bg-gray-300 dark:bg-gray-600" }></div>
+}

@@ -1,0 +1,38 @@
+package components
+
+import "github.com/PedroBinotto/website/templates/components/widgets"
+
+templ SiteHeader() {
+	<header class="sticky top-0 z-50 themed-view">
+		<div class="p-4 w-full max-w-6xl mx-auto border-b border-b-text-light dark:border-b-text-dark">
+			<div class="flex justify-between items-center">
+				<div class="flex items-center gap-12">
+					@SiteTitle()
+					@widgets.Divider(widgets.DividerProps{Class: "hidden md:block"})
+					<div class="hidden md:contents">
+						<!-- Desktop -->
+						<nav class="flex gap-6">
+							<a href="/">home</a>
+							<a href="/resume">resume</a>
+							<a href="/hello">hello</a>
+							<a href="/blogs">blogs</a>
+						</nav>
+					</div>
+				</div>
+				<div class="flex gap-6">
+					@NavbarBtn()
+					@DarkModeBtn()
+				</div>
+			</div>
+			<div class="hidden" id="mobile-menu">
+				<!-- Mobile-->
+				<div class="flex flex-col space-y-3 py-4">
+					<a href="/">home</a>
+					<a href="/resume">resume</a>
+					<a href="/hello">hello</a>
+					<a href="/blogs">blogs</a>
+				</div>
+			</div>
+		</div>
+	</header>
+}

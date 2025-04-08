@@ -30,8 +30,13 @@ func main() {
 		return component.Render(context.Background(), c.Response().Writer)
 	})
 
+	e.GET("/playground", func(c echo.Context) error {
+		component := templates.Layout(templates.Playground())
+		return component.Render(context.Background(), c.Response().Writer)
+	})
+
 	e.Static("/static", "static")
 	e.Static("/css", "css")
 
-	e.Logger.Fatal((e.Start(":8080")))
+	e.Logger.Fatal((e.Start(":8081")))
 }

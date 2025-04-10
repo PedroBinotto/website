@@ -3,8 +3,12 @@ package main
 import (
 	"context"
 
+	"database/sql"
+
+	generated "github.com/PedroBinotto/website/sqlc-generated"
 	"github.com/PedroBinotto/website/templates"
 	"github.com/labstack/echo/v4"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
@@ -26,6 +30,17 @@ func main() {
 	})
 
 	e.GET("/blogs", func(c echo.Context) error {
+
+		db, err := sql.Open("sqlite3", "./app.db")
+		if err != nil {
+			println("Unable to connect to application database.")
+		}
+
+		// Testing sql connection
+		queries := generated.New(db)
+		users, err := queries.GetUsers(context.Background())
+		println(len(users))
+
 		component := templates.Layout(templates.Blogs())
 		return component.Render(context.Background(), c.Response().Writer)
 	})

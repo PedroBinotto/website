@@ -3,6 +3,8 @@ FROM golang:1.23.1-alpine AS builder
 RUN apk add --no-cache git gcc musl-dev make curl
 
 RUN go install github.com/a-h/templ/cmd/templ@latest
+RUN go install github.com/pressly/goose/v3/cmd/goose@latest
+RUN go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 
 RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v3.3.5/tailwindcss-linux-x64 \
   && chmod +x tailwindcss-linux-x64 \

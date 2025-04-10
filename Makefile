@@ -1,4 +1,7 @@
 PACKAGES := $(shell go list ./...)
+DB=db/app.db
+MIGRATIONS=db/migrations
+SCHEMA=db/query/schema.sql
 name := $(shell basename ${PWD})
 
 all: help
@@ -18,6 +21,22 @@ init:
 	go install github.com/air-verse/air@latest
 	asdf reshim golang
 
+## migrate-up: run goose UP migrations
+.PHONY: migrate-up
+migrate-up:
+	goose -dir $(MIGRATIONS) sqlite3 $(DB) up
+
+## migrate-up: run goose DOWN migrations (rollback)
+.PHONY: migrate-down
+migrate-down:
+	goose -dir $(MIGRATIONS) sqlite3 $(DB) down
+
+## generate-queries: generate SQLC typed queries
+.PHONY: generate-queries
+generate-queries: migrate-up
+	sqlite3 $(DB) .schema > $(SCHEMA)
+	sqlc generate
+
 ## vet: vet code
 .PHONY: vet
 vet:
@@ -30,7 +49,7 @@ generate:
 
 ## test: run unit tests
 .PHONY: test
-test: generate
+test: generate generate-queries
 	go test -race -cover $(PACKAGES)
 
 ## build: build a binary

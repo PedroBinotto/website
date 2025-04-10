@@ -1,6 +1,6 @@
 FROM golang:1.23.1-alpine AS builder
 
-RUN apk add --no-cache git gcc musl-dev make curl
+RUN apk add --no-cache git gcc musl-dev make curl sqlite
 
 RUN go install github.com/a-h/templ/cmd/templ@latest
 RUN go install github.com/pressly/goose/v3/cmd/goose@latest

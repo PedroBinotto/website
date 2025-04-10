@@ -26,7 +26,7 @@ init:
 migrate-up:
 	goose -dir $(MIGRATIONS) sqlite3 $(DB) up
 
-## migrate-up: run goose DOWN migrations (rollback)
+## migrate-down: run goose DOWN migrations (rollback)
 .PHONY: migrate-down
 migrate-down:
 	goose -dir $(MIGRATIONS) sqlite3 $(DB) down

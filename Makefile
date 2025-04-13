@@ -60,12 +60,12 @@ build: test
 ## docker-build: build project into a docker container image
 .PHONY: docker-build
 docker-build: test
-	GOPROXY=direct docker buildx build -t ${name} .
+	GOPROXY=direct docker buildx build --progress=plain --no-cache -t ${name} .
 
 ## docker-run: run project in a container
 .PHONY: docker-run
 docker-run:
-	docker run -it --rm -p 8080:8080 ${name}
+	docker run -p 8080:8080 -v /website/data:/app/db --name website-app --detach ${name}
 
 ## start: build and run local project
 .PHONY: start

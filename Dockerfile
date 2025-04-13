@@ -29,7 +29,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /app
 
 COPY --from=builder /app/app .
-
+COPY --from=builder /app/db ./db
 COPY --from=builder /app/css ./css
 COPY --from=builder /app/static ./static
 COPY --from=builder /app/templates ./templates
@@ -37,5 +37,6 @@ COPY --from=builder /app/templates ./templates
 EXPOSE 8080
 
 ENV GO_ENV=production
+ENV SQLITE_DB=/app/db/app.db
 
 CMD ["./app"]

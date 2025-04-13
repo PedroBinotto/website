@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"os"
 
 	"database/sql"
 
@@ -13,6 +14,12 @@ import (
 
 func main() {
 	e := echo.New()
+	sqliteDB := os.Getenv("SQLITE_DB")
+	db, dbErr := sql.Open("sqlite3", sqliteDB)
+
+	if dbErr != nil {
+		println("Unable to connect to application database.")
+	}
 
 	e.GET("/", func(c echo.Context) error {
 		index := templates.Layout(templates.Index())
@@ -30,16 +37,11 @@ func main() {
 	})
 
 	e.GET("/blogs", func(c echo.Context) error {
-
-		db, err := sql.Open("sqlite3", "./app.db")
-		if err != nil {
-			println("Unable to connect to application database.")
-		}
-
-		// Testing sql connection
 		queries := generated.New(db)
-		users, err := queries.GetUsers(context.Background())
-		println(len(users))
+
+		queries.CreateBlog(context.Background())
+		blogs, _ := queries.GetBlogs(context.Background())
+		println(len(blogs))
 
 		component := templates.Layout(templates.Blogs())
 		return component.Render(context.Background(), c.Response().Writer)
@@ -53,5 +55,5 @@ func main() {
 	e.Static("/static", "static")
 	e.Static("/css", "css")
 
-	e.Logger.Fatal((e.Start(":8081")))
+	e.Logger.Fatal((e.Start(":8080")))
 }

@@ -9,3 +9,12 @@ muh website
 - [ ] `/home`;
 - [ ] `/resume`;
 - [ ] `/blog/{X}`;
+
+---
+
+### build and execution
+
+```bash
+make docker-build
+make docker-run
+```

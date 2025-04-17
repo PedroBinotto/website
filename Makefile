@@ -1,6 +1,7 @@
-PACKAGES := $(shell go list ./...)
+CONTAINER_NAME=website-app
 DB=db/app.db
 MIGRATIONS=db/migrations
+PACKAGES := $(shell go list ./...)
 SCHEMA=db/query/schema.sql
 name := $(shell basename ${PWD})
 
@@ -57,6 +58,11 @@ test: generate generate-queries
 build: test
 	go build -o ./app -v
 
+## clean: clean up generated and compiled files
+.PHONY: clean
+clean:
+	rm -rf app css/output.css db/app.db db/query/schema.sql sqlc-generated templates/**/*.go tmp
+
 ## docker-build: build project into a docker container image
 .PHONY: docker-build
 docker-build: test
@@ -65,7 +71,12 @@ docker-build: test
 ## docker-run: run project in a container
 .PHONY: docker-run
 docker-run:
-	docker run -p 8080:8080 -v /website/data:/app/db --name website-app --detach ${name}
+	docker run -p 8080:8080 -v /website/data:/app/db --name ${CONTAINER_NAME} --detach ${name}
+
+## docker-down: remove running app container
+.PHONY: docker-down
+docker-down:
+	docker rm -f ${CONTAINER_NAME}
 
 ## start: build and run local project
 .PHONY: start

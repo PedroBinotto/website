@@ -19,7 +19,6 @@ RUN go mod download
 COPY . .
 
 RUN make css
-
 RUN make build
 
 FROM alpine:3.19

@@ -73,15 +73,15 @@ docker-build: test
 docker-run:
 	docker run -p 8080:8080 -v /website/data:/app/db --name ${CONTAINER_NAME} --detach ${name}
 
-## docker-down: remove running app container
-.PHONY: docker-down
-docker-down:
+## docker-rm: remove running app container
+.PHONY: docker-rm
+docker-rm:
 	docker rm -f ${CONTAINER_NAME}
 
 ## start: build and run local project
 .PHONY: start
 start: build
-	air
+	SQLITE_DB=./db/app.db air
 
 ## css: build tailwindcss
 .PHONY: css

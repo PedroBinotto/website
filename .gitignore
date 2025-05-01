@@ -31,7 +31,8 @@ app
 
 css/output.css
 
-*.sqlite3
-*.db
-sqlc-generated/
 **/**/schema.sql
+*.db
+*.sqlite3
+server.log
+sqlc-generated/

@@ -82,7 +82,7 @@ docker-build:
 ## docker-run: run project in a container
 .PHONY: docker-run
 docker-run:
-	docker run -p 8080:8080 -v /website/data:/app/db --name $(CONTAINER_NAME) --detach $(DOCKERHUB_REPO)
+	docker run -p 8080:8080 -v /website/data:/app/db --name $(CONTAINER_NAME) --detach $(DOCKERHUB_URL)
 
 ## docker-rm: remove running app container
 .PHONY: docker-rm

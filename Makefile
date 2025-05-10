@@ -1,9 +1,18 @@
+PROFILE ?= dev
 CONTAINER_NAME=website-app
 DB=db/app.db
 MIGRATIONS=db/migrations
 PACKAGES := $(shell go list ./...)
 SCHEMA=db/query/schema.sql
-name := $(shell basename ${PWD})
+NAME := $(shell basename $(PWD))
+
+DOCKERHUB_LOGIN := pedrobinotto
+DOCKERHUB_REPO := $(NAME):$(PROFILE)
+DOCKERHUB_URL := $(DOCKERHUB_LOGIN)/$(DOCKERHUB_REPO)
+
+ifeq ($(filter $(PROFILE),dev prod),)
+	$(error Invalid PROFILE '$(PROFILE)'. Must be 'dev' or 'prod')
+endif
 
 all: help
 
@@ -18,7 +27,7 @@ help: Makefile
 ## init: initialize project (make init module=github.com/user/project)
 .PHONY: init
 init:
-	go mod init ${module}
+	go mod init $(module)
 	go install github.com/air-verse/air@latest
 	asdf reshim golang
 
@@ -65,23 +74,25 @@ clean:
 
 ## docker-build: build project into a docker container image
 .PHONY: docker-build
-docker-build: test
-	GOPROXY=direct docker buildx build --progress=plain -t ${name} .
+docker-build:
+	GOPROXY=direct docker buildx build --progress=plain -t $(DOCKERHUB_REPO) .
+	docker tag $(DOCKERHUB_REPO) $(DOCKERHUB_URL)
+	docker push $(DOCKERHUB_URL)
 
 ## docker-run: run project in a container
 .PHONY: docker-run
 docker-run:
-	docker run -p 8080:8080 -v /website/data:/app/db --name ${CONTAINER_NAME} --detach ${name}
+	docker run -p 8080:8080 -v /website/data:/app/db --name $(CONTAINER_NAME) --detach $(DOCKERHUB_REPO)
 
 ## docker-rm: remove running app container
 .PHONY: docker-rm
 docker-rm:
-	docker rm -f ${CONTAINER_NAME}
+	docker rm -f $(CONTAINER_NAME)
 
 ## start: build and run local project
 .PHONY: start
 start: build
-	SQLITE_DB=${DB} air
+	SQLITE_DB=$(DB) air
 
 ## css: build tailwindcss
 .PHONY: css

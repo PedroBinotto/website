@@ -34,5 +34,5 @@ css/output.css
 **/**/schema.sql
 *.db
 *.sqlite3
-server.log
+server.log.jsonl
 sqlc-generated/

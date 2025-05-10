@@ -1,4 +1,4 @@
-.env
-app
-app.db
-server.log
+*/**/.env
+*/**/app
+*/**/app.db
+*/**/server.log.jsonl

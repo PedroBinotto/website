@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	logFile, logFileErr := os.OpenFile("server.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	logFile, logFileErr := os.OpenFile("server.log.jsonl", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if logFileErr != nil {
 		panic(logFileErr)
 	}

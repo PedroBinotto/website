@@ -66,7 +66,7 @@ clean:
 ## docker-build: build project into a docker container image
 .PHONY: docker-build
 docker-build: test
-	GOPROXY=direct docker buildx build --progress=plain --no-cache -t ${name} .
+	GOPROXY=direct docker buildx build --progress=plain -t ${name} .
 
 ## docker-run: run project in a container
 .PHONY: docker-run
@@ -81,7 +81,7 @@ docker-rm:
 ## start: build and run local project
 .PHONY: start
 start: build
-	SQLITE_DB=./db/app.db air
+	SQLITE_DB=${DB} air
 
 ## css: build tailwindcss
 .PHONY: css

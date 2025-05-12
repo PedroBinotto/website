@@ -30,6 +30,7 @@ WORKDIR /app
 COPY --from=builder /app/app .
 COPY --from=builder /app/db ./db
 COPY --from=builder /app/css ./css
+COPY --from=builder /app/public ./public
 COPY --from=builder /app/static ./static
 COPY --from=builder /app/templates ./templates
 

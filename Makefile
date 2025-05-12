@@ -74,7 +74,7 @@ clean:
 
 ## docker-build: build project into a docker container image
 .PHONY: docker-build
-docker-build:
+docker-build: test
 	GOPROXY=direct docker buildx build --progress=plain -t $(DOCKERHUB_REPO) .
 	docker tag $(DOCKERHUB_REPO) $(DOCKERHUB_URL)
 	docker push $(DOCKERHUB_URL)

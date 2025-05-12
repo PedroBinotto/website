@@ -28,14 +28,14 @@ function enableLandingAnimation() {
 
   if (!container) return
 
-  const contentHeight = container.scrollHeight;
+  // const contentHeight = container.scrollHeight;  #FIXME: why tf does this not work in prod
   container.style.height = '100vh';
-  window.addEventListener('scroll', () => {
-    const scrollRatio = Math.min(window.scrollY / (window.innerHeight / 2), 1);
-    const newHeight = window.innerHeight - (scrollRatio * (window.innerHeight - contentHeight));
-
-    container.style.height = `${newHeight}px`;
-  });
+  // window.addEventListener('scroll', () => {
+  //   const scrollRatio = Math.min(window.scrollY / (window.innerHeight / 2), 1);
+  //   const newHeight = window.innerHeight - (scrollRatio * (window.innerHeight - contentHeight));
+  //
+  //   container.style.height = `${newHeight}px`;
+  // });
 }
 
 document.addEventListener('DOMContentLoaded', enableLandingAnimation);

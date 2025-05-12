@@ -79,6 +79,7 @@ func main() {
 
 	e.Static("/static", "static")
 	e.Static("/css", "css")
+	e.Static("/", "public")
 
 	e.Logger.Info("Server starting...")
 	e.Logger.Fatal((e.Start(":8080")))

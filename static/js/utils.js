@@ -20,24 +20,6 @@ function toggleNavbar() {
   document.getElementById('mobile-menu').classList.toggle('hidden');
 }
 
-/**
- * Adjusts `id:'landing-container'` for height to provide "sliding" effect seen on the home page
- */
-function enableLandingAnimation() {
-  const container = document.getElementById('landing-container');
-
-  if (!container) return
-
-  // const contentHeight = container.scrollHeight;  #FIXME: why tf does this not work in prod
-  container.style.height = '100vh';
-  // window.addEventListener('scroll', () => {
-  //   const scrollRatio = Math.min(window.scrollY / (window.innerHeight / 2), 1);
-  //   const newHeight = window.innerHeight - (scrollRatio * (window.innerHeight - contentHeight));
-  //
-  //   container.style.height = `${newHeight}px`;
-  // });
-}
-
 document.addEventListener('DOMContentLoaded', enableLandingAnimation);
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
   document.documentElement.classList.add('dark')

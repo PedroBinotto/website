@@ -58,8 +58,7 @@ Both will run on port 8080 by default.
 
 ### TODO:
 
-- [ ] `/home`;
-- [ ] `/resume`;
+- [ ] Automate `sitemap.xml` generation on build;
 - [ ] `/blog/{X}`;
 
 ---

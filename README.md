@@ -59,7 +59,9 @@ Both will run on port 8080 by default.
 ### TODO:
 
 - [ ] Automate `sitemap.xml` generation on build;
-- [ ] `/blog/{X}`;
+- [ ] `/blog/{X}`: 
+    - [ ] setup blogs repo + CI actions;
+    - [ ] fix DB indexing for files;
 
 ---
 

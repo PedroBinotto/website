@@ -10,6 +10,8 @@ muh website [pedrobinotto.xyz](https://www.pedrobinotto.xyz/)
 - [templ](https://templ.guide/);
 - [goose](https://pressly.github.io/goose/) (database migrations);
 - [air](https://github.com/air-verse/air) (live reloading);
+- make;
+- go;
 
 The `sqlc`, `templ`, `goose`, and `air` packages can be installed directly via Go (recommended):
 
@@ -50,7 +52,6 @@ make start
 Run it in a container:
 
 ```bash
-make docker-build
 make docker-run
 ```
 

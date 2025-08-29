@@ -1,14 +1,18 @@
 /**
  * Toggles global dark mode/theme
  */
+
+const dark = 'dark'
+const light = 'light'
+
 function toggleDarkMode() {
   const root = document.documentElement;
-  if (root.classList.contains('dark')) {
-    root.classList.remove('dark');
-    localStorage.theme = 'light';
+  if (root.classList.contains(dark)) {
+    root.classList.remove(dark);
+    localStorage.theme = light;
   } else {
-    root.classList.add('dark');
-    localStorage.theme = 'dark';
+    root.classList.add(dark);
+    localStorage.theme = dark;
   }
 }
 
@@ -20,7 +24,6 @@ function toggleNavbar() {
   document.getElementById('mobile-menu').classList.toggle('hidden');
 }
 
-document.addEventListener('DOMContentLoaded', enableLandingAnimation);
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark')
+if (localStorage.theme === dark || (!('theme' in localStorage) && window.matchMedia(`(prefers-color-scheme: ${dark})`).matches)) {
+  document.documentElement.classList.add(dark)
 }

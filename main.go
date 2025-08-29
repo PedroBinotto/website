@@ -2,17 +2,12 @@ package main
 
 import (
 	"context"
-	"os"
-	"strconv"
-
-	"database/sql"
-
-	generated "github.com/PedroBinotto/website/sqlc-generated"
 	"github.com/PedroBinotto/website/templates"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 	_ "github.com/mattn/go-sqlite3"
+	"os"
 )
 
 func main() {
@@ -29,16 +24,16 @@ func main() {
 		Output: logFile,
 	}))
 
-	sqliteDB := os.Getenv("SQLITE_DB")
-	db, dbErr := sql.Open("sqlite3", sqliteDB)
+	// sqliteDB := os.Getenv("SQLITE_DB")
+	// db, dbErr := sql.Open("sqlite3", sqliteDB)
 
-	e.Logger.Info("sqliteDB")
-	e.Logger.Info(sqliteDB)
-
-	if dbErr != nil {
-		e.Logger.Fatal(dbErr)
-		panic("Unable to connect to application database.")
-	}
+	// e.Logger.Info("sqliteDB")
+	// e.Logger.Info(sqliteDB)
+	//
+	// if dbErr != nil {
+	// 	e.Logger.Fatal(dbErr)
+	// 	panic("Unable to connect to application database.")
+	// }
 
 	e.GET("/", func(c echo.Context) error {
 		index := templates.Layout(templates.Index())
@@ -56,17 +51,17 @@ func main() {
 	})
 
 	e.GET("/blogs", func(c echo.Context) error {
-		queries := generated.New(db)
+		// queries := generated.New(db)
 
-		insertedBlog, err := queries.CreateBlog(context.Background())
+		// insertedBlog, err := queries.CreateBlog(context.Background())
 
-		c.Echo().Logger.Info(insertedBlog)
-		c.Echo().Logger.Info(err)
+		// c.Echo().Logger.Info(insertedBlog)
+		// c.Echo().Logger.Info(err)
 
-		blogs, _ := queries.GetBlogs(context.Background())
+		// blogs, _ := queries.GetBlogs(context.Background())
 
 		c.Echo().Logger.Info("DB entries: ")
-		c.Echo().Logger.Info(strconv.Itoa(len(blogs)))
+		// c.Echo().Logger.Info(strconv.Itoa(len(blogs)))
 
 		component := templates.Layout(templates.Blogs())
 		return component.Render(context.Background(), c.Response().Writer)

@@ -41,8 +41,21 @@ templ Resume() {
 		})
 		<h5>EXPERIENCE</h5>
 		@components.Section(components.SectionProps{
+			TitleRowLeft:     "SOFTWARE ENGINEER",
+			TitleRowRight:    "SEP. 2025 — CURRENT DAY",
+			SubTitleRowLeft:  "blockful.io",
+			SubTitleRowRight: "Ethereum Network",
+		}) {
+			<ul>
+				<li>
+					Full stack work on <a href="https://anticapture.com">anticapture.com</a> (governance security for DAOs);
+				</li>
+				<li>Experience with the Ethereum ecosystem and Web3 in general;</li>
+			</ul>
+		}
+		@components.Section(components.SectionProps{
 			TitleRowLeft:     "FULL STACK DEVELOPER",
-			TitleRowRight:    "MAR. 2023 — CURRENT DAY",
+			TitleRowRight:    "MAR. 2023 — SEP. 2025",
 			SubTitleRowLeft:  "Laboratório Bridge",
 			SubTitleRowRight: "Florianópolis, SC",
 		}) {
@@ -76,13 +89,23 @@ templ Resume() {
 		<ul>
 			<li>Backend development (Java, JS, Python, Go, etc...);</li>
 			<li>Standard fronted frameworks (React, Angular, Vue, Svelte);</li>
+			<li>Web3 & Ethereum ecosystem;</li>
 		</ul>
 		<hr/>
 		<h5>PERSONAL PROJECTS</h5>
 		<ul>
 			<li>Currently experimenting with unorthodox/alternative web stacks (HTMX, GOTTH, etc...);</li>
-			<li>Neovim customization and plugin development;</li>
+			<li>Music-related tech (and non-tech) projects;</li>
+			<li>Neovim plugin development;</li>
 			<li>Open source work;</li>
 		</ul>
+		<hr/>
+		<div class="mx-auto w-max text-center opacity-70 text-sm font-light">
+			<p>
+				<a href="/static/assets/pedro_binotto-resume.pdf" download>
+					Download as PDF
+				</a>
+			</p>
+		</div>
 	}
 }

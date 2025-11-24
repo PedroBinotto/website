@@ -28,7 +28,7 @@ The TailwinCSS CLI (MUST be 3.X.X) tool can be installed via the [Node Package M
 # v3.4.16 Latest v3 release as of writing
 curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.16/tailwindcss-linux-x64
 chmod +x tailwindcss-linux-x64
-mv tailwindcss-macos-arm64 /otp/tailwindcss # assuming /opt is in your $PATH
+mv tailwindcss-linux-x64 /otp/tailwindcss # assuming /opt is in your $PATH
 ```
 
 SQLite3 is available on [most package managers](https://launchpad.net/ubuntu/+source/sqlite3) and can also be downloaded as a binary, built from source, etc.:

@@ -5,7 +5,6 @@ muh website [pedrobinotto.xyz](https://www.pedrobinotto.xyz/)
 ### Requirements
 
 - [Tailwind CSS (v3\*)](https://v3.tailwindcss.com/);
-- [PostgreSQL](https://www.postgresql.org/);
 - [sqlc](https://sqlc.dev/);
 - [templ](https://templ.guide/);
 - [air](https://github.com/air-verse/air) (live reloading);
@@ -27,13 +26,6 @@ The TailwinCSS CLI (MUST be 3.X.X) tool can be installed via the [Node Package M
 curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.16/tailwindcss-linux-x64
 chmod +x tailwindcss-linux-x64
 mv tailwindcss-linux-x64 /otp/tailwindcss # assuming /opt is in your $PATH
-```
-
-PostgreSQL is available on [most package managers](https://launchpad.net/ubuntu/+source/postgresql-common) and can also be downloaded as a binary, built from source, etc.:
-
-```bash
-# Debian/Ubuntu
-sudo apt install postgresql
 ```
 
 ## Configuration

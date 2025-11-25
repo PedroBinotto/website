@@ -4,6 +4,3 @@ CREATE TABLE blogs (
     url TEXT NOT NULL,
     body TEXT NOT NULL
 );
-
-INSERT INTO blogs (id, title, url, body) 
-VALUES (1, 'my first blog post', 'first_blog_entry', 'lorem ipsum dolor');

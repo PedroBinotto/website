@@ -77,7 +77,7 @@ func main() {
 		blogs, _ := queries.GetBlogs(context.Background())
 		c.Echo().Logger.Info("DB entries: ")
 		c.Echo().Logger.Info(strconv.Itoa(len(blogs)))
-		component := templates.Layout(templates.Blogs())
+		component := templates.Layout(templates.Blogs(blogs))
 		return component.Render(context.Background(), c.Response().Writer)
 	})
 

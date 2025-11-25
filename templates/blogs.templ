@@ -1,13 +1,25 @@
 package templates
 
 import "github.com/PedroBinotto/website/templates/components"
+import "github.com/PedroBinotto/website/sqlc-generated"
+import "fmt"
 
-templ Blogs() {
+templ Blogs(blogs []generated.Blog) {
 	@components.Article() {
 		<header>
 			<h1>Welcome to My Sample Page</h1>
 			<p>This is a basic HTML page showcasing different elements.</p>
 		</header>
+		<div>
+			for _, blog := range blogs {
+				<p>
+					ID: { fmt.Sprintf("%d", blog.ID) } |
+					Title: { blog.Title } |
+					URL: { blog.Url } |
+					Body: { blog.Body }
+				</p>
+			}
+		</div>
 		<nav>
 			<ul>
 				<li><a href="#section1">Section 1</a></li>

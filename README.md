@@ -45,16 +45,18 @@ DB_PORT=5432
 Run it natively:
 
 ```bash
-# Builds the binary (PROD)
+# Builds the binary
 make build
-# Runs it with `air` (live reload) for development
+# Creates and migrates the database containers for the app
+docker compose up -d migrate
+# Runs app with `air` (live reload) for development
 make start
 ```
 
 Run it in a container:
 
 ```bash
-make docker-run
+docker compose up -d migrate
 ```
 
 Both will run on port 8080 by default.

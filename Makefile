@@ -71,7 +71,7 @@ docker-publish: test
 ## start: build and run local project
 .PHONY: start
 start: build
-	SQLITE_DB=$(DB) air
+	air -d
 
 ## css: build tailwindcss
 .PHONY: css

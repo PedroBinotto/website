@@ -36,6 +36,5 @@ COPY --from=builder /app/templates ./templates
 EXPOSE 8080
 
 ENV GO_ENV=production
-ENV SQLITE_DB=/app/db/app.db
 
 CMD ["./app"]

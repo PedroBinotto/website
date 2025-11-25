@@ -56,7 +56,7 @@ make start
 Run it in a container:
 
 ```bash
-docker compose up -d migrate
+docker compose up -d
 ```
 
 Both will run on port 8080 by default.

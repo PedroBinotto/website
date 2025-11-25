@@ -1,7 +1,7 @@
+#!make
+include .env
+
 PROFILE ?= dev
-CONTAINER_NAME=website-app
-DB=db/app.db
-MIGRATIONS=db/migrations
 PACKAGES := $(shell go list ./...)
 SCHEMA=db/query/schema.sql
 NAME := $(shell basename $(PWD))
@@ -31,20 +31,9 @@ init:
 	go install github.com/air-verse/air@latest
 	asdf reshim golang
 
-## migrate-up: run goose UP migrations
-.PHONY: migrate-up
-migrate-up:
-	goose -dir $(MIGRATIONS) sqlite3 $(DB) up
-
-## migrate-down: run goose DOWN migrations (rollback)
-.PHONY: migrate-down
-migrate-down:
-	goose -dir $(MIGRATIONS) sqlite3 $(DB) down
-
 ## generate-queries: generate SQLC typed queries
 .PHONY: generate-queries
-generate-queries: migrate-up
-	sqlite3 $(DB) .schema > $(SCHEMA)
+generate-queries:
 	sqlc generate
 
 ## vet: vet code
@@ -72,22 +61,12 @@ build: test
 clean:
 	rm -rf app css/output.css db/app.db db/query/schema.sql sqlc-generated templates/**/*.go tmp
 
-## docker-build: build project into a docker container image
-.PHONY: docker-build
-docker-build: test
+## docker-publish: build project into a docker container image
+.PHONY: docker-publish
+docker-publish: test
 	GOPROXY=direct docker buildx build -t $(DOCKERHUB_REPO) .
 	docker tag $(DOCKERHUB_REPO) $(DOCKERHUB_URL)
 	docker push $(DOCKERHUB_URL)
-
-## docker-run: run project in a container
-.PHONY: docker-run
-docker-run:
-	docker run --pull=always -p 8080:8080 -v /website/data:/app/db --name $(CONTAINER_NAME) --detach $(DOCKERHUB_URL)
-
-## docker-rm: remove running app container
-.PHONY: docker-rm
-docker-rm:
-	docker rm -f $(CONTAINER_NAME)
 
 ## start: build and run local project
 .PHONY: start

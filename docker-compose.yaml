@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: ${DB_HOST}
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  migrate:
+    image: migrate/migrate:latest
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./db/migrations:/migrations
+    command: [
+      "-path", "/migrations",
+        "-database", "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}?sslmode=disable",
+      "up"
+    ]
+    networks:
+      - app-network
+
+  app:
+    image: pedrobinotto/website:dev # make configurable
+    pull_policy: always
+    container_name: website-app
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    networks:
+      - app-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge

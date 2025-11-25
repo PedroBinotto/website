@@ -5,20 +5,18 @@ muh website [pedrobinotto.xyz](https://www.pedrobinotto.xyz/)
 ### Requirements
 
 - [Tailwind CSS (v3\*)](https://v3.tailwindcss.com/);
-- [SQLite3](https://sqlite.org/index.html);
+- [PostgreSQL](https://www.postgresql.org/);
 - [sqlc](https://sqlc.dev/);
 - [templ](https://templ.guide/);
-- [goose](https://pressly.github.io/goose/) (database migrations);
 - [air](https://github.com/air-verse/air) (live reloading);
 - make;
 - go;
 
-The `sqlc`, `templ`, `goose`, and `air` packages can be installed directly via Go (recommended):
+The `sqlc`, `templ` and `air` packages can be installed directly via Go (recommended):
 
 ```bash
 go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 go install github.com/a-h/templ/cmd/templ@latest
-go install github.com/pressly/goose/v3/cmd/goose@latest
 go install github.com/air-verse/air@latest
 ```
 
@@ -31,11 +29,23 @@ chmod +x tailwindcss-linux-x64
 mv tailwindcss-linux-x64 /otp/tailwindcss # assuming /opt is in your $PATH
 ```
 
-SQLite3 is available on [most package managers](https://launchpad.net/ubuntu/+source/sqlite3) and can also be downloaded as a binary, built from source, etc.:
+PostgreSQL is available on [most package managers](https://launchpad.net/ubuntu/+source/postgresql-common) and can also be downloaded as a binary, built from source, etc.:
 
 ```bash
 # Debian/Ubuntu
-sudo apt install sqlite3
+sudo apt install postgresql
+```
+
+## Configuration
+
+All configuration is done via `.env`; an example file can be found in `.env.example`
+
+```bash
+DB_HOST=website-db
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=app_db
+DB_PORT=5432
 ```
 
 ## Execution

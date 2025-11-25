@@ -2,8 +2,28 @@ package templates
 
 import "github.com/PedroBinotto/website/templates/components"
 
-templ Hello(name string) {
+templ Hello() {
 	@components.Article() {
-		<h1 class="normal-case">Hello, world!</h1>
+		<h1>Hello, world!</h1>
+		<p class="font-semibold text-lg">
+			Lorem ipsum
+		</p>
+		<p>
+			Lorem ipsum
+		</p>
+		<hr/>
+		<div class="flex flex-col md:pt-4 md:flex-row">
+			<div class="md:w-1/2">
+				<h2 class="text-3xl font-bold mb-4 mt-0">About me</h2>
+				<p>
+					Lorem ipsum
+				</p>
+			</div>
+			<div class="md:w-1/2 mb-6 md:mb-0">
+				<div class="aspect-square overflow-hidden">
+					<img class="dark:invert w-full h-full object-cover mt-0" src="/static/assets/portrait.png" alt="Portrait"/>
+				</div>
+			</div>
+		</div>
 	}
 }

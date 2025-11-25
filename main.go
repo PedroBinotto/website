@@ -63,7 +63,7 @@ func main() {
 	})
 
 	e.GET("/hello", func(c echo.Context) error {
-		component := templates.Layout(templates.Hello("Pedro"))
+		component := templates.Layout(templates.Hello())
 		return component.Render(context.Background(), c.Response().Writer)
 	})
 

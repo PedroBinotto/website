@@ -29,12 +29,9 @@ func main() {
 		Output: logFile,
 	}))
 
-	dbURL := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable",
-		getEnv("DB_USER", ""),
-		getEnv("DB_PASSWORD", ""),
-		getEnv("DB_HOST", ""),
-		getEnv("DB_PORT", ""),
-		getEnv("DB_NAME", ""),
+	dbURL := fmt.Sprintf(
+		"postgres://%s:%s@%s:%s/%s?sslmode=disable",
+		getEnv("DB_USER"), getEnv("DB_PASSWORD"), getEnv("DB_HOST"), getEnv("DB_PORT"), getEnv("DB_NAME"),
 	)
 
 	// Change: Use "postgres" driver instead of "sqlite3"
@@ -73,6 +70,10 @@ func main() {
 	})
 
 	e.GET("/blogs", func(c echo.Context) error {
+		/* TODO: make this route a paged list
+		 * Also: find out a way to include images in posts; develop post view
+		 */
+
 		queries := generated.New(db)
 		blogs, _ := queries.GetBlogs(context.Background())
 		c.Echo().Logger.Info("DB entries: ")
@@ -95,10 +96,6 @@ func main() {
 }
 
 // Helper function to get environment variable with default value
-func getEnv(key, defaultValue string) string {
-	value := os.Getenv(key)
-	if value == "" {
-		return defaultValue
-	}
-	return value
+func getEnv(key string) string {
+	return os.Getenv(key)
 }

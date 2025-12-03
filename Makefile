@@ -2,7 +2,7 @@
 include .env
 
 PROFILE ?= dev
-PACKAGES := $(shell go list ./...)
+PACKAGES = $(shell go list ./...)
 SCHEMA=db/query/schema.sql
 NAME := $(shell basename $(PWD))
 

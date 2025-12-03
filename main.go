@@ -21,6 +21,13 @@ func main() {
 	if logFileErr != nil {
 		panic(logFileErr)
 	}
+	db, dbErr := sql.Open("postgres", fmt.Sprintf(
+		"postgres://%s:%s@%s:%s/%s?sslmode=disable",
+		getEnv("DB_USER"), getEnv("DB_PASSWORD"), getEnv("DB_HOST"), getEnv("DB_PORT"), getEnv("DB_NAME"),
+	))
+	if dbErr != nil {
+		panic("Unable to connect to application database.")
+	}
 
 	e := echo.New()
 	e.Logger.SetOutput(logFile)
@@ -29,31 +36,6 @@ func main() {
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Output: logFile,
 	}))
-
-	dbURL := fmt.Sprintf(
-		"postgres://%s:%s@%s:%s/%s?sslmode=disable",
-		getEnv("DB_USER"), getEnv("DB_PASSWORD"), getEnv("DB_HOST"), getEnv("DB_PORT"), getEnv("DB_NAME"),
-	)
-
-	// Change: Use "postgres" driver instead of "sqlite3"
-	db, dbErr := sql.Open("postgres", dbURL)
-	e.Logger.Info("PostgreSQL connection string")
-	e.Logger.Info(dbURL)
-
-	if dbErr != nil {
-		e.Logger.Fatal(dbErr)
-		panic("Unable to connect to application database.")
-	}
-
-	// Add: Test the connection
-	if pingErr := db.Ping(); pingErr != nil {
-		e.Logger.Fatal(pingErr)
-		panic("Unable to ping database.")
-	}
-
-	// Add: Configure connection pool (optional but recommended)
-	db.SetMaxOpenConns(25)
-	db.SetMaxIdleConns(5)
 
 	e.Static("/static", "static")
 	e.Static("/css", "css")

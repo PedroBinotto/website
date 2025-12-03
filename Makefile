@@ -43,7 +43,7 @@ vet:
 
 ## generate: compile templ files
 .PHONY: generate
-generate:
+generate: generate-queries
 	templ generate 
 
 ## test: run unit tests

@@ -43,7 +43,7 @@
   }
 
   .hoverable {
-    @apply dark:hover:bg-slate-600 hover:bg-slate-300 transition-colors duration-200;
+    @apply dark:hover:bg-[#262626] hover:bg-[#e5e7eb] transition-colors duration-200;
   }
 
   .font-code {
